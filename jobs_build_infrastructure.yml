@@ -3,4 +3,4 @@ jobs:
     displayName: 'Build Infrastructure'
     pool: { name: on-premises }
     steps:
-      - script: echo Building Infrastructure...
+      - script: echo i am triggerd with sharedPipelines in azure pipeline cmp-ci
