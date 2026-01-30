@@ -1,7 +1,6 @@
 jobs:
   - job: InfrastructureBuild
     displayName: 'Build Infrastructure'
-    pool:
-      vmImage: 'windows-latest'
+    pool: { name: on-premises }
     steps:
       - script: echo Building Infrastructure...
