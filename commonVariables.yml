@@ -1,6 +1,0 @@
-jobs:
-  - job: InfrastructureBuild
-    displayName: 'Build Infrastructure'
-    pool: { name: on-premises }
-    steps:
-      - script: echo i am triggerd with sharedPipelines in azure pipeline cmp-ci name = commonVariables.yml
