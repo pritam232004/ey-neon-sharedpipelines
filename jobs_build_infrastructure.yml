@@ -1,0 +1,27 @@
+# This name appears in the Azure DevOps UI
+name: HelloWorld_Triggered_$(Date:yyyyMMdd).$(Rev:r)
+
+# 1. Triggered by code changes in specific branches
+trigger: none
+
+# 2. Triggered by the completion of ANOTHER pipeline
+resources:
+  pipelines:
+  - pipeline: sourcePipelineAlias # This is a nickname for the trigger
+    source: 'The-Name-Of-Your-Other-Pipeline' # The actual name of the pipeline in Azure DevOps
+    trigger:
+      branches:
+        include:
+          - master
+          - main
+
+pool: { name: on-premises }
+
+steps:
+- script: echo "Hello, World!"
+  displayName: 'Run Hello World'
+
+- script: |
+    echo "This pipeline was triggered successfully."
+    echo "Triggering branch: $(Build.SourceBranch)"
+  displayName: 'Display Metadata'
